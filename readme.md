@@ -7,7 +7,7 @@ This is the repository for all the projects I learned from taking the course.
 This project has the following file structure:
 
 ```python
-GDA/
+Python/
 ├── 01_main.py
 ├── 02_TipCalculator.py
 ├── 03_TreasureIsland.py
