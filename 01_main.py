@@ -22,6 +22,8 @@ tc = importlib.import_module("08_CaesarCipher")
 caesarcipher = getattr(tc,"caesarcipher")
 tc = importlib.import_module("09_Auction")
 auction = getattr(tc, "auction")
+tc = importlib.import_module("10_Calculator")
+calculator = getattr(tc, "calculator")
 
 def display_menu():
     print('''
@@ -33,7 +35,8 @@ Notebook Menu
 5. Hangman
 6. Caesar Cipher
 7. Auction
-8. Quit Application
+8. Calculator
+9. Quit Application
 ''')
 
 def quit():
@@ -47,8 +50,8 @@ def chkoption():
             print("That's not an integer!\n")
             continue
         else:
-            if opt < 1 or opt > 8:
-                print("Not a valid option.Type 8 to Quit. \n")
+            if opt < 1 or opt > 9:
+                print("Not a valid option.Type 9 to Quit. \n")
                 continue
             else:
                 break
@@ -75,7 +78,8 @@ options = {1 : tipcalculator,
            5 : hangman,
            6 : caesarcipher,
            7 : auction,
-           8 : quit,
+           8 : calculator,
+           9 : quit,
 }
 play = "yes"
 while play.lower() == "yes":
@@ -84,7 +88,7 @@ while play.lower() == "yes":
     choice = chkoption()
     just = os.system('clear')
     options[choice]()
-    if choice == 8:
+    if choice == 9:
         play = "no"
     else:
         play = playmore()
