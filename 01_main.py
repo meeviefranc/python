@@ -26,6 +26,8 @@ tc = importlib.import_module("10_Calculator")
 calculator = getattr(tc, "calculator")
 tc = importlib.import_module("11_BlackJack")
 blackjack = getattr(tc, "blackjack")
+tc = importlib.import_module("12_Guessnumber")
+guessnumber = getattr(tc, "guessnumber")
 
 def display_menu():
     print('''
@@ -39,7 +41,8 @@ Notebook Menu
 7. Auction
 8. Calculator
 9. BlackJack
-10. Quit Application
+10. Number Guessing Game
+11. Quit Application
 ''')
 
 def quit():
@@ -53,8 +56,8 @@ def chkoption():
             print("That's not an integer!\n")
             continue
         else:
-            if opt < 1 or opt > 10:
-                print("Not a valid option.Type 10 to Quit. \n")
+            if opt < 1 or opt > 11:
+                print("Not a valid option.Type 11 to Quit. \n")
                 continue
             else:
                 break
@@ -83,7 +86,8 @@ options = {1  : tipcalculator,
            7  : auction,
            8  : calculator,
            9  : blackjack,
-           10 : quit,
+           10 : guessnumber,
+           11 : quit,
 }
 play = "yes"
 while play.lower() == "yes":
@@ -92,7 +96,7 @@ while play.lower() == "yes":
     choice = chkoption()
     just = os.system('clear')
     options[choice]()
-    if choice == 10:
+    if choice == 11:
         play = "no"
     else:
         play = playmore()

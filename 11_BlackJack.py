@@ -91,7 +91,7 @@ def blackjack():
         ans = playgame('Do you want to play a game of Blackjack?  Type \'y\' or \'n\': ')
         if (ans == 'y'):
             just = os.system('clear')
-            sayhiasc()9
+            sayhiasc()
 
             user_cards = checkcard()
             comp_cards = checkcard()
