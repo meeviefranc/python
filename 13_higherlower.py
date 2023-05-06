@@ -56,7 +56,6 @@ def whowins(c1, c2):
 def compare_celeb(score, celeb1, celeb2):
     """compare the no. of followers of the celebs"""
     win = False
-    # celeb1, celeb2 = rnd_no(new_play, 0, 0)
     celeb1_dict = d_dict[celeb1]
     celeb2_dict = d_dict[celeb2]
     if score > 0:
