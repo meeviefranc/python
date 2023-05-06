@@ -17,7 +17,7 @@ def choose(q, choice):
     """Validate choice for A or B"""
     ask = True
     while ask:
-        ans = input(q)
+        ans = input(q).upper()
         if ans not in choice:
             print("Not a valid choice. Pick one: ", choice)
             ask = True
@@ -26,12 +26,15 @@ def choose(q, choice):
     return ans
 
 
-def rnd_no():
-    """Generate random number between 0 and length of game_data to generate choices"""
-    n1 = randint(0, len(d_dict))
+def rnd_no(new_play, n2):
+    """Generate random number between 0 and length of game_data to generate choices and use same celeb for option A on next round"""
+    if new_play:
+        n1 = randint(0, len(d_dict)-1)
+    else:
+        n1 = n2
     ask = True
     while ask:
-        n2 = randint(0, len(d_dict))
+        n2 = randint(0, len(d_dict)-1)
         if n2 != n1:
             ask = False
     return n1, n2
@@ -42,21 +45,23 @@ def celeb_str(c_dict):
     return c_dict["name"] + ", " + c_dict["description"] + ", from " + c_dict["country"] + "."
 
 
-def compare_celeb(score):
-    """compare the no. of followers of the celebs"""
-    win = False
-    print(logo)
-    if score > 0:
-        print(f"You're right! Current score: {score}.")
-    celeb1, celeb2 = rnd_no()
-    celeb1_dict = d_dict[celeb1]
-    celeb2_dict = d_dict[celeb2]
-    celeb1_flw = d_dict[celeb1]["follower_count"]
-    celeb2_flw = d_dict[celeb2]["follower_count"]
-    if celeb1_flw > celeb2_flw:
+def whowins(c1, c2):
+    if c1 > c2:
         winner = 'A'
     else:
         winner = 'B'
+    return winner
+
+
+def compare_celeb(score, celeb1, celeb2):
+    """compare the no. of followers of the celebs"""
+    win = False
+    # celeb1, celeb2 = rnd_no(new_play, 0, 0)
+    celeb1_dict = d_dict[celeb1]
+    celeb2_dict = d_dict[celeb2]
+    if score > 0:
+        print(f"You're right! Current score: {score}.")
+    winner = whowins(d_dict[celeb1]["follower_count"], d_dict[celeb2]["follower_count"] )
     print("Compare A: " + celeb_str(celeb1_dict))
     print(getattr(art, "vs"))
     print("Against B: " + celeb_str(celeb2_dict))
@@ -68,9 +73,12 @@ def compare_celeb(score):
 
 def higherlower():
     """main game"""
-    win = True
-    score = 0
+    win = new_play = True
+    celeb1 = celeb2 = score = 0
     while win:
         just = os.system('clear')
-        win, score = compare_celeb(score)
+        print(logo)
+        celeb1, celeb2 = rnd_no(new_play, celeb2)
+        win, score = compare_celeb(score, celeb1, celeb2)
+        new_play = False
     print(f"Sorry, that\'s wrong. Final score: {score}")
