@@ -8,6 +8,10 @@ This project has the following file structure:
 
 ```python
 Python/
+├── higherlower
+    ├── __init.__py
+    ├── art.py
+    ├── game_data.py 
 ├── 01_main.py
 ├── 02_TipCalculator.py
 ├── 03_TreasureIsland.py
@@ -19,4 +23,6 @@ Python/
 ├── 09_Auction.py
 ├── 10_Calculator.py
 ├── 11_BlackJack.py
-├── Guessnumber.py
+├── 12_Guessnumber.py
+├── 13_higherlower.py
+├── __init.__py
