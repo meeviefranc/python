@@ -14,6 +14,7 @@ d_dict = getattr(game_data, "data")
 
 
 def choose(q, choice):
+    """Validate choice for A or B"""
     ask = True
     while ask:
         ans = input(q)
@@ -26,6 +27,7 @@ def choose(q, choice):
 
 
 def rnd_no():
+    """Generate random number between 0 and length of game_data to generate choices"""
     n1 = randint(0, len(d_dict))
     ask = True
     while ask:
@@ -36,10 +38,12 @@ def rnd_no():
 
 
 def celeb_str(c_dict):
+    """format of display for name of celebs"""
     return c_dict["name"] + ", " + c_dict["description"] + ", from " + c_dict["country"] + "."
 
 
 def compare_celeb(score):
+    """compare the no. of followers of the celebs"""
     win = False
     print(logo)
     if score > 0:
@@ -63,6 +67,7 @@ def compare_celeb(score):
 
 
 def higherlower():
+    """main game"""
     win = True
     score = 0
     while win:
