@@ -30,6 +30,9 @@ tc = importlib.import_module("12_Guessnumber")
 guessnumber = getattr(tc, "guessnumber")
 tc = importlib.import_module("13_higherlower")
 higherlower = getattr(tc, "higherlower")
+tc = importlib.import_module("14_coffeemachine")
+coffeemachine = getattr(tc, "coffeemachine")
+
 
 def display_menu():
     print('''
@@ -45,7 +48,8 @@ Notebook Menu
 9. BlackJack
 10. Number Guessing Game
 11. Higher Or Lower
-12. Quit Application
+12. Coffee Machine
+13. Quit Application
 ''')
 
 def quit():
@@ -59,8 +63,8 @@ def chkoption():
             print("That's not an integer!\n")
             continue
         else:
-            if opt < 1 or opt > 12:
-                print("Not a valid option.Type 11 to Quit. \n")
+            if opt < 1 or opt > 13:
+                print("Not a valid option.Type 13 to Quit. \n")
                 continue
             else:
                 break
@@ -91,7 +95,8 @@ options = {1  : tipcalculator,
            9  : blackjack,
            10 : guessnumber,
            11 : higherlower,
-           12 : quit,
+           12 : coffeemachine,
+           13 : quit,
 }
 play = "yes"
 while play.lower() == "yes":
@@ -100,7 +105,7 @@ while play.lower() == "yes":
     choice = chkoption()
     just = os.system('clear')
     options[choice]()
-    if choice == 12:
+    if choice == 13:
         play = "no"
     else:
         play = playmore()
