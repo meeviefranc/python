@@ -12,6 +12,11 @@ Python/
     ├── __init.__py
     ├── art.py
     ├── game_data.py 
+├── oopcoffeemachine
+    ├── __init.__py
+    ├── coffee_maker.py
+    ├── menu.py
+    ├── money_machine.py
 ├── 01_main.py
 ├── 02_TipCalculator.py
 ├── 03_TreasureIsland.py
@@ -26,4 +31,5 @@ Python/
 ├── 12_Guessnumber.py
 ├── 13_higherlower.py
 ├── 14_coffeemachine.py
+├── 15_oopcoffeemachine.py
 ├── __init.__py
